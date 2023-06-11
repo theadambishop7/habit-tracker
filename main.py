@@ -24,6 +24,7 @@ graph_config = {
 date = str(input("If not today, then please define which day you want to track time for (YYYYMMDD), "
                  "for TODAY leave blank? "))
 if not date:
+    print("today")
     today = TODAY
 else:
     today = date
