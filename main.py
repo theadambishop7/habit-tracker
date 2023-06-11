@@ -21,8 +21,15 @@ graph_config = {
     "color": "ajisai",
 }
 
+date = str(input("If not today, then please define which day you want to track time for (YYYYMMDD), "
+                 "for TODAY leave blank? "))
+if not date:
+    today = TODAY
+else:
+    today = date
+
 value_config = {
-    "date": TODAY,
+    "date": today,
     "quantity": input("How many hours did you work on Python today? ")
 }
 
