@@ -1,8 +1,9 @@
 import requests
 import random
+import os
 
 USERNAME = "theadambishop"
-TOKEN = "MZBi$k%52sl8xbu"
+TOKEN = os.getenv("TOKEN")
 GRAPH_ID = "graph001"
 
 pixela_endpoint = "https://pixe.la/v1/users"
