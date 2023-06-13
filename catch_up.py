@@ -12,7 +12,7 @@ pixela_value_endpoint = f"{pixela_graph_endpoint}/{GRAPH_ID}"
 
 pixela_header = {"X-USER-TOKEN": TOKEN}
 
-potential_hours = [1.5, 1, 1.5, 2, 2.5, 2, 2, 2, 2, 2.5, 2.5, 2.5, 3, 3, 3, 3.5, 4]
+potential_hours = [1.5, 1, 1.5, 2, 2.5, 2, 2, 2, 2, 2.5, 2.5, 2.5, 3, 3, 3, 3.5, 4, 2.5]
 
 for n in range(1, 31):
     if n < 9:
