@@ -15,7 +15,7 @@ pixela_header = {"X-USER-TOKEN": TOKEN}
 
 graph_config = {
     "id": "graph001",
-    "name": "Python Graph",
+    "name": "Programming Progress",
     "unit": "hours",
     "type": "float",
     "color": "ajisai",
