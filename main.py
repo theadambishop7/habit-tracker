@@ -1,6 +1,7 @@
 import requests
 from datetime import datetime
 import os
+import time
 
 USERNAME = "theadambishop"
 TOKEN = os.getenv("TOKEN")
@@ -33,7 +34,29 @@ value_config = {
     "quantity": input("How many hours did you work on Python today? ")
 }
 
-response = requests.post(pixela_value_endpoint, headers=pixela_header, json=value_config)
-response.raise_for_status()
+retry_limit = 5  # set a reasonable retry limit
+retry_delay = 1  # set a delay between retries in seconds
 
-print(response.json())
+success = False
+attempts = 0
+
+while not success and attempts < retry_limit:
+    try:
+        response = requests.post(pixela_value_endpoint, headers=pixela_header, json=value_config)
+        response.raise_for_status()
+
+        # If the response is successful, exit the loop
+        success = True
+
+    except requests.HTTPError as e:
+        # Check if it's a 503 error
+        if e.response.status_code == 503:
+            print("Received a 503 error. Retrying...")
+            attempts += 1
+            time.sleep(retry_delay)  # Wait for the given delay before retrying
+        else:
+            # For any other exception, raise it immediately
+            raise
+
+    else:
+        print(response.json())
