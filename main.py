@@ -31,7 +31,7 @@ else:
 
 value_config = {
     "date": today,
-    "quantity": input("How many hours did you work on Python today? ")
+    "quantity": input("How many hours did you work on Programming today? ")
 }
 
 retry_limit = 5  # set a reasonable retry limit
